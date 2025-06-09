@@ -98,7 +98,7 @@ login_result_t api_request_login_v1(int sock, const char *username, const char *
 	uint8_t pass_len = strlen(password);
 	
 	req_header.packet_id = REQ_LOGIN;
-	req_header.version = MAKE_VERSION(1, 0);
+	req_header.version = PROTOCOL_VERSION; // MAKE_VERSION(1, 0);
 	
 	// write request headers
 	if (send(sock, &req_header, sizeof(req_header), 0) != sizeof(req_header)) {
